@@ -12,4 +12,17 @@ The network consists of:
 
 This architecture improves scalability, simplifies troubleshooting, enhances security, and supports future expansion.
 
-The implementation follows Cisco CCNA best practices for enterprise campus networks.
+The implementation follows Cisco CCNA best practices for enterprise campus networks. 
+
+### Device Inventory
+
+The network consists of:
+
+| Device | Quantity | Purpose |
+|---------|----------|---------|
+| Cisco 2911 Router | 2 | Enterprise Router and ISP Router |
+| Cisco 3560 Layer 3 Switch | 1 | Core Switch |
+| Cisco 2960 Switch | 3 | Access Layer |
+| Server | 1 | DHCP, DNS, HTTP, FTP |
+| PCs | 24 | End Users |
+| Printers | 4 | Shared Printing |
