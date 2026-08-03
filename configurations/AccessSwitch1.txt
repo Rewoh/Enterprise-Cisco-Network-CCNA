@@ -1,0 +1,146 @@
+ACC-SW1#show running-config
+Building configuration...
+
+Current configuration : 2692 bytes
+!
+version 12.1
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+service password-encryption
+!
+hostname ACC-SW1
+!
+enable secret 5 $1$mERr$oBJckCFjK1C3FDkpE3kfU1
+!
+!
+!
+ip ssh version 2
+no ip domain-lookup
+ip domain-name enterprise.local
+!
+username admin secret 5 $1$mERr$HwmyPSRChBx8L2w1sg06f0
+!
+!
+!
+spanning-tree mode pvst
+spanning-tree extend system-id
+!
+interface FastEthernet0/1
+ description TRUNK_TO_CORE-SW_Gi0/2
+ switchport trunk native vlan 99
+ switchport trunk allowed vlan 10,20,30,40,50,60,70,80,90,99
+ switchport mode trunk
+!
+interface FastEthernet0/2
+ description PC-ADM-01
+ switchport access vlan 20
+ switchport mode access
+ spanning-tree portfast
+!
+interface FastEthernet0/3
+ description PC-ADM-01
+ switchport access vlan 20
+ switchport mode access
+ spanning-tree portfast
+!
+interface FastEthernet0/4
+ description PC-ADM-01
+ switchport access vlan 20
+ switchport mode access
+ spanning-tree portfast
+!
+interface FastEthernet0/5
+ description PC-FIN-01
+ switchport access vlan 30
+ switchport mode access
+ spanning-tree portfast
+!
+interface FastEthernet0/6
+ description PC-FIN-01
+ switchport access vlan 30
+ switchport mode access
+ spanning-tree portfast
+!
+interface FastEthernet0/7
+ description PC-FIN-01
+ switchport access vlan 30
+ switchport mode access
+ spanning-tree portfast
+!
+interface FastEthernet0/8
+ description PRN-ADM
+ switchport access vlan 20
+ switchport mode access
+ spanning-tree portfast
+!
+interface FastEthernet0/9
+ description PRN-FIN
+ switchport access vlan 30
+ switchport mode access
+ spanning-tree portfast
+!
+interface FastEthernet0/10
+!
+interface FastEthernet0/11
+!
+interface FastEthernet0/12
+!
+interface FastEthernet0/13
+!
+interface FastEthernet0/14
+!
+interface FastEthernet0/15
+!
+interface FastEthernet0/16
+!
+interface FastEthernet0/17
+!
+interface FastEthernet0/18
+!
+interface FastEthernet0/19
+!
+interface FastEthernet0/20
+!
+interface FastEthernet0/21
+!
+interface FastEthernet0/22
+!
+interface FastEthernet0/23
+!
+interface FastEthernet0/24
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+interface Vlan10
+ description MANAGEMENT_SVI
+ ip address 10.10.10.11 255.255.255.0
+!
+ip default-gateway 10.10.10.1
+!
+banner motd ^C ********************** WARNING! This device is the property of Mr. Rewoh John. Unauthorized access is prohibited. All activities may be monitored and recorded. Disconnect immediately if you are not an authorized user. ******************** ^C
+!
+!
+!
+line con 0
+ password 7 0802455D0A162546405858517C6A
+ exec-timeout 0 0
+!
+line vty 0 4
+ password 7 0802455D0A162546405858517C6A
+ logging synchronous
+ login local
+ transport input ssh
+line vty 5 15
+ logging synchronous
+ login local
+ transport input ssh
+!
+!
+!
+!
+end
+
+
+ACC-SW1#
