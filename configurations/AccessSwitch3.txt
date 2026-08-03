@@ -1,0 +1,195 @@
+ACC-SW3#show running-config
+Building configuration...
+
+Current configuration : 3882 bytes
+!
+version 12.1
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+service password-encryption
+!
+hostname ACC-SW3
+!
+enable secret 5 $1$mERr$hXH0EGrdAm8ONwGulJAIM.
+!
+!
+!
+ip ssh version 2
+no ip domain-lookup
+ip domain-name enterprise.local
+!
+username admin secret 5 $1$mERr$HwmyPSRChBx8L2w1sg06f0
+!
+!
+!
+spanning-tree mode pvst
+spanning-tree extend system-id
+!
+interface FastEthernet0/1
+ description TRUNK_TO_CORE-SW_Fa0/2
+ switchport trunk native vlan 99
+ switchport trunk allowed vlan 10,20,30,40,50,60,70,80,90,99
+ switchport mode trunk
+!
+interface FastEthernet0/2
+ description PC-CS-01
+ switchport access vlan 60
+ switchport mode access
+ spanning-tree portfast
+!
+interface FastEthernet0/3
+ description PC-CS-01
+ switchport access vlan 60
+ switchport mode access
+ spanning-tree portfast
+!
+interface FastEthernet0/4
+ description PC-CS-01
+ switchport access vlan 60
+ switchport mode access
+ spanning-tree portfast
+!
+interface FastEthernet0/5
+ description PC-CS-01
+ switchport access vlan 60
+ switchport mode access
+ spanning-tree portfast
+!
+interface FastEthernet0/6
+ description PC-CS-01
+ switchport access vlan 60
+ switchport mode access
+ spanning-tree portfast
+!
+interface FastEthernet0/7
+ description PC-CS-01
+ switchport access vlan 60
+ switchport mode access
+ spanning-tree portfast
+!
+interface FastEthernet0/8
+ description PC-CS-01
+ switchport access vlan 60
+ switchport mode access
+ spanning-tree portfast
+!
+interface FastEthernet0/9
+ description PC-IT-O1
+ switchport access vlan 70
+ switchport mode access
+ spanning-tree portfast
+!
+interface FastEthernet0/10
+ description PC-IT-O1
+ switchport access vlan 70
+ switchport mode access
+ spanning-tree portfast
+!
+interface FastEthernet0/11
+ description PC-IT-O1
+ switchport access vlan 70
+ switchport mode access
+ spanning-tree portfast
+!
+interface FastEthernet0/12
+ description PC-IT-O1
+ switchport access vlan 70
+ switchport mode access
+ spanning-tree portfast
+!
+interface FastEthernet0/13
+ description PC-IT-O1
+ switchport access vlan 70
+ switchport mode access
+ spanning-tree portfast
+!
+interface FastEthernet0/14
+ description PC-IT-O1
+ switchport access vlan 70
+ switchport mode access
+ spanning-tree portfast
+!
+interface FastEthernet0/15
+ description PC-IT-O1
+ switchport access vlan 70
+ switchport mode access
+ spanning-tree portfast
+!
+interface FastEthernet0/16
+ description PC-IT-O1
+ switchport access vlan 70
+ switchport mode access
+ spanning-tree portfast
+!
+interface FastEthernet0/17
+ description PRN-IT
+ switchport access vlan 70
+ switchport mode access
+ spanning-tree portfast
+!
+interface FastEthernet0/18
+!
+interface FastEthernet0/19
+!
+interface FastEthernet0/20
+ description SRV-01
+ switchport access vlan 80
+ switchport mode access
+ spanning-tree portfast
+!
+interface FastEthernet0/21
+ description PC-MGT-01
+ switchport access vlan 10
+ switchport mode access
+ spanning-tree portfast
+!
+interface FastEthernet0/22
+ description PC-MGT-01
+ switchport access vlan 10
+ switchport mode access
+ spanning-tree portfast
+!
+interface FastEthernet0/23
+ description PC-MGT-01
+ switchport access vlan 10
+ switchport mode access
+ spanning-tree portfast
+!
+interface FastEthernet0/24
+ description PC-MGT-01
+ switchport access vlan 10
+ switchport mode access
+ spanning-tree portfast
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+interface Vlan10
+ description MANAGEMENT_SVI
+ ip address 10.10.10.13 255.255.255.0
+!
+ip default-gateway 10.10.10.1
+!
+banner motd ^C ********************** WARNING! This device is the property of Mr. Rewoh John. Unauthorized access is prohibited. All activities may be monitored and recorded. Disconnect immediately if you are not an authorized user. ******************** ^C
+!
+!
+!
+line con 0
+ password 7 0802455D0A162546405858517C7C7C69
+ exec-timeout 0 0
+!
+line vty 0 4
+ password 7 0802455D0A162546405858517C7C7C69
+ login
+ transport input ssh
+line vty 5 15
+ login
+!
+!
+!
+!
+end
+
+
+ACC-SW3#
